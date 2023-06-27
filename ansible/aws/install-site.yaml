@@ -1,0 +1,15 @@
+- name: Instalar aplicação WEB no servidor EC2 AWS
+  hosts: ec2-grails
+  vars:
+    app_path: /home/ubuntu
+  tasks:
+    - name: Copiar docker-compose.yml
+      copy:
+        src: docker-compose.yml
+        dest: "{{ app_path }}"
+
+    - name: Run `docker-compose up`
+      become: yes
+      community.docker.docker_compose:
+        project_src: "{{ app_path }}"
+        build: no
