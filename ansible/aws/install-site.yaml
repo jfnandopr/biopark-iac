@@ -1,5 +1,5 @@
 - name: Instalar aplicação WEB no servidor EC2 AWS
-  hosts: ec2-grails
+  hosts: webserver01
   vars:
     app_path: /home/ubuntu
   tasks:
