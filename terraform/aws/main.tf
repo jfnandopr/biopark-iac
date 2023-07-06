@@ -15,7 +15,7 @@ provider "aws" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
-  public_key = file("~/.ssh/id_rsa.pub")
+  public_key = file("~/.ssh/id_ed25519.pub")
 }
 
 resource "aws_default_vpc" "default" {
@@ -63,6 +63,6 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [ aws_security_group.web.id ]
 
   tags = {
-    Name = "Aplicação Web"
+    Name = "Wordpress"
   }
 }

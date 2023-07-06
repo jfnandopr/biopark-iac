@@ -1,7 +1,5 @@
 - name: Instalar aplicação WEB no servidor EC2 AWS
   hosts: webserver01
-  vars:
-    app_path: /home/ubuntu
   tasks:
     - name: Instalar pacotes requeridos
       become: yes

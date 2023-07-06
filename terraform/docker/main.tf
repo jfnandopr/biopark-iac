@@ -2,19 +2,19 @@ terraform {
   required_providers {
     docker = {
       source  = "kreuzwerker/docker"
-      version = "~> 2.13.0"
+      version = "~> 3.0.2"
     }
   }
 }
 
 provider "docker" {}
 
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
+resource "docker_image" "proxy" {
+  name = "nginx:latest"
 }
 
 resource "docker_container" "nginx" {
-  image = docker_image.nginx.name
+  image = docker_image.proxy.name
   name  = "proxy"
   ports {
     internal = 80
