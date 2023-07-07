@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "sa-east-1"
 }
 
 resource "aws_key_pair" "deployer" {
@@ -57,7 +57,7 @@ resource "aws_security_group" "web" {
 }
 
 resource "aws_instance" "web" {
-  ami           = "ami-052efd3df9dad4825"
+  ami           = "ami-0af6e9042ea5a4e3e"
   instance_type = "t2.micro"
   key_name = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [ aws_security_group.web.id ]
