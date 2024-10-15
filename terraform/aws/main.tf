@@ -68,7 +68,7 @@ resource "aws_security_group" "web" {
 }
 
 resource "aws_instance" "web" {
-  ami                    = "ami-052efd3df9dad4825"
+  ami                    = "ami-0866a3c8686eaeeba"
   instance_type          = "t2.micro"
   key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.web.id]
