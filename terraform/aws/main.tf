@@ -29,11 +29,12 @@ resource "local_file" "deployer" {
   file_permission = "0400"
 }
 
-resource "aws_default_vpc" "default" {
+data "aws_vpc" "default" {
+  default = true
 }
 
 resource "aws_security_group" "web" {
-  vpc_id = aws_default_vpc.default.id
+  vpc_id = data.aws_vpc.default.id
 
   ingress {
     description = "HTTP Access"
